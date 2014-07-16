@@ -60,7 +60,7 @@ describe('Iterators', function(){
     })
 
     it('should return one value aggregating members of an array', function() {
-      myArr = [2,3,4,5]
+      myArr = [2,3,4,5];
       expect(Iterators.reduce(myArr, function(previousVal, currItem) {
         return Math.pow(previousVal, currItem);
       })).to.equal(1152921504606847000);
