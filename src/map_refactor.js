@@ -16,8 +16,14 @@ var sqrAndRoot = function(num) {
 };
 
 // this might work for sqrt, square or both
-var sqrOpts = function(num, action) {
-	return action(num);
+// this is turning into map, but shouldn't
+var sqrOpts = function(list, square, sqrRoot) {
+	var newList = [];
+	for (var i = 0; i < list.length; i++) {
+		var sqrNumber = square(list[i]);
+		newList.push(sqrRoot(sqrNumber));
+	}
+	return newList;
 };
 
 
@@ -25,19 +31,9 @@ var sqrNumbers = iterators.map(myNumbers, square);
 var absNumbers = iterators.map(sqrNumbers, sqrRoot);
 
 // calling sqrOrRoot to return abs
-var sqrNums = iterators.map(myNumbers, sqrOrRoot);
+var sqrNums = iterators.map(myNumbers, sqrAndRoot);
 console.log(sqrNums);
 
-// calling sqrOpts, but not sure what to return where yet
-var newSqrNumbers = iterators.map(myNumbers, 
-	function(currNum, 
-		function(currNum) {
-		return currNum * currNum;
-	})
-});
-
-// var newAbsNumbers = iterators.map(myNumbers, function(currNum, function(currNum) {
-// 		return Math.sqrt(currNum);
-// 		}) {
-
-// });
+// calling sqrOpts
+var newAbsNumbers = iterators.map(myNumbers, sqrOpts(myNumbers, square, sqrRoot));
+console.log(newAbsNumbers);
