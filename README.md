@@ -18,12 +18,29 @@ Pretending we implemented the following methods, update this README with a descr
 
 
 * `max`: should return the maximum in an array, should return infinity for empty array
+var x = [1,2,3,4].max();
+[4]
 * `min`: should return the minimum value in an array, should return infinity for empty array
+var x = [1,2,3,4].min();
+[1]
 * `each`: should run a given action on each item in an array, should return the array
-* `map`: should call a given function once for each item in an array, in order and return the results (transformed)
-* `filter`: [note](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - should call a function for each item in an array that returns true or false for each value in an array
+var x = [1,2,3,4].each(function(current, index) { console.log(current);});
+1
+2
+3
+4
+* `map`: should call a given function once for each item in an array, in order and return the results
+var x = [1,2,3,4].map(function(current, index) { return current + 1});
+x = [2,3,4,5]
+* `filter`: [note](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - should call a function for each item in an array that returns true or false for each value in an array. It would return an array excluding the false values.
 * `reduce`: [note](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-applies a function against an accumulator and each value of the array, and has to reduce to a single value
+var x = [1,2,3,4].filter(function(current) {
+	return current < 2;
+});
+x = [2,3,4]
+applies a function against an accumulator and each value of the array, and reduces to a single value
+var y = [1,2,3].reduce(function(aggregate, current) {return aggregate + current})
+y = 6
 * `reject`: [note](http://underscorejs.org/#reject) - runs a function against an array and returns the numbers laying outside the condition specified
 
 Use the notes provided to help guide you explanation.

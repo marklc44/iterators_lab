@@ -19,14 +19,29 @@ var Iterators = (function() {
         }
       }
       return smallest;
-    }// },
-    // reduce: function(list, agg, curr) {
-    //   var aggregate;
+    },
+    reduce: function(list, action) {
+      var aggregate = null;
+      var newVal;
 
-    //   for (var i = 0; i < list.length; i++) {
-    //     return func(aggregate, currentItem);
-    //   }
-    // }
+      for (var i = 0; i < list.length; i++) {
+        newVal = action(aggregate, list[i]);
+      }
+      return newVal;
+    },
+    each: function(list, action) {
+      for (var i = 0; i < list.length; i++) {
+        action(list[i], i);
+      }
+      return list;
+    },
+    map: function(list, action) {
+      var newList = [];
+      for (var i = 0; i < list.length; i++) {
+        newList.push(action(list[i], i));
+      }
+      return newList;
+    }
   };
 
   return api;
