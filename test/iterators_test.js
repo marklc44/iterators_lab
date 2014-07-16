@@ -53,6 +53,12 @@ describe('Iterators', function(){
       })).to.equal(10);
     })
 
+    it('should return one value aggregating members of an array', function() {
+      expect(Iterators.reduce(myArr, function(previousVal, currItem) {
+        return previousVal / currItem;
+      })).to.equal(0.041666666666666664);
+    })
+
   })
 
   describe('#each', function() {
