@@ -59,6 +59,13 @@ describe('Iterators', function(){
       })).to.equal(0.041666666666666664);
     })
 
+    it('should return one value aggregating members of an array', function() {
+      myArr = [2,3,4,5]
+      expect(Iterators.reduce(myArr, function(previousVal, currItem) {
+        return Math.pow(previousVal, currItem);
+      })).to.equal(1152921504606847000);
+    })
+
   })
 
   describe('#each', function() {

@@ -10,8 +10,11 @@ var sqrRoot = function(num) {
 	return Math.sqrt(num);
 };
 
-var sqrOrRoot = function(num) {
+var sqrAndRoot = function(num) {
 	return Math.sqrt(num * num);
+};
+var sqrOpts = function(num, action) {
+	return action(num);
 };
 
 
@@ -20,3 +23,16 @@ var absNumbers = iterators.map(sqrNumbers, sqrRoot);
 
 var sqrNums = iterators.map(myNumbers, sqrOrRoot);
 console.log(sqrNums);
+
+var newSqrNumbers = iterators.map(myNumbers, 
+	function(currNum, 
+		function(currNum) {
+		return currNum * currNum;
+	})
+});
+
+var newAbsNumbers = iterators.map(myNumbers, function(currNum, function(currNum) {
+		return Math.sqrt(currNum);
+		}) {
+
+});
