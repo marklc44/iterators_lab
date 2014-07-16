@@ -36,8 +36,20 @@ describe('Iterators', function(){
       myArr = [1,2,3,4];
     });
     it('should return one value aggregating members of an array', function() {
-      expect(Iterators.reduce(myArr, function(agg, currItem) {
-        agg + currItem;
+      expect(Iterators.reduce(myArr, function(previousVal, currItem) {
+        return previousVal * currItem;
+      })).to.equal(24);
+    })
+
+    it('should return one value aggregating members of an array', function() {
+      expect(Iterators.reduce(myArr, function(previousVal, currItem) {
+        return previousVal - currItem;
+      })).to.equal(-8);
+    })
+
+    it('should return one value aggregating members of an array', function() {
+      expect(Iterators.reduce(myArr, function(previousVal, currItem) {
+        return previousVal + currItem;
       })).to.equal(10);
     })
 
@@ -60,6 +72,24 @@ describe('Iterators', function(){
 
     it('should call a function on each item in an array and return the result', function() {
       expect(Iterators.map(myArr, function(currItem) {return currItem + 1})).to.deep.equal([2,3,4,5]);
+      
+    });
+  });
+
+  describe('#filter', function() {
+    var myArr = [1,2,3,4];
+
+    it('should call a function on each item in an array and return the result', function() {
+      expect(Iterators.filter(myArr, function(currItem) {return currItem < 3})).to.deep.equal([1,2]);
+      
+    });
+  });
+
+  describe('#reject', function() {
+    var myArr = [1,2,3,4];
+
+    it('should call a function on each item in an array and return the result', function() {
+      expect(Iterators.reject(myArr, function(currItem) {return currItem < 3})).to.deep.equal([3,4]);
       
     });
   });

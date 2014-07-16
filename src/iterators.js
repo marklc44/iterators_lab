@@ -21,13 +21,12 @@ var Iterators = (function() {
       return smallest;
     },
     reduce: function(list, action) {
-      var aggregate = null;
-      var newVal;
+      var previousVal = list[0];
 
-      for (var i = 0; i < list.length; i++) {
-        newVal = action(aggregate, list[i]);
+      for (var i = 1; i < list.length; i++) {
+        previousVal = action(previousVal, list[i]);
       }
-      return newVal;
+      return previousVal;
     },
     each: function(list, action) {
       for (var i = 0; i < list.length; i++) {
@@ -41,7 +40,26 @@ var Iterators = (function() {
         newList.push(action(list[i], i));
       }
       return newList;
+    },
+    filter: function(list, action) {
+      var newList = [];
+      for (var i = 0; i < list.length; i++) {
+        if (action(list[i])) {
+          newList.push(list[i]);
+        }
+      }
+      return newList;
+    },
+    reject: function(list, action) {
+      var newList = [];
+      for (var i = 0; i < list.length; i++) {
+        if (!action(list[i])) {
+          newList.push(list[i]);
+        }
+      }
+      return newList;
     }
+    
   };
 
   return api;
