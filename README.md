@@ -64,6 +64,10 @@ Implement the remaining iterator methods in the namespace.
 
 Refactor the following code using `map` to make only one call to the `map` function versus the two below.
 
+```
+This solutions is in src/map_refactor.js
+```
+
 
 ```
 var myNumbers = [ -1, 2, -3, 4, -5, 6];
