@@ -10,31 +10,11 @@ var sqrRoot = function(num) {
 	return Math.sqrt(num);
 };
 
-// this takes the sqrt of the square returning abs
-var sqrAndRoot = function(num) {
-	return Math.sqrt(num * num);
-};
-
-// this might work for sqrt, square or both
-// this is turning into map, but shouldn't
-// I think this works, but iterators.map is erroring
-var sqrOpts = function(list, square, sqrRoot) {
-	var newList = [];
-	for (var i = 0; i < list.length; i++) {
-		var sqrNumber = square(list[i]);
-		newList.push(sqrRoot(sqrNumber));
-	}
-	return newList;
-};
-
-
 var sqrNumbers = iterators.map(myNumbers, square);
 var absNumbers = iterators.map(sqrNumbers, sqrRoot);
 
-// calling sqrOrRoot to return abs
-var sqrNums = iterators.map(myNumbers, sqrAndRoot);
+// This is it!!!!!!!
+var sqrNums = iterators.map(myNumbers, function(num) {
+	return sqrRoot(square(num));
+});
 console.log(sqrNums);
-
-// calling sqrOpts
-var newAbsNumbers = iterators.map(myNumbers, sqrOpts(myNumbers, square, sqrRoot));
-console.log(newAbsNumbers);
