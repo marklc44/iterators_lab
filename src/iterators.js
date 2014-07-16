@@ -9,10 +9,29 @@ var Iterators = (function() {
         }
       };
       return max;
-    }
+    },
+    min: function(list) {
+      var smallest = Infinity;
+
+      for (var i = 0; i < list.length; i++) {
+        if (smallest > list[i]) {
+          smallest = list[i];
+        }
+      }
+      return smallest;
+    }// },
+    // reduce: function(list, agg, curr) {
+    //   var aggregate;
+
+    //   for (var i = 0; i < list.length; i++) {
+    //     return func(aggregate, currentItem);
+    //   }
+    // }
   };
 
   return api;
 })();
+
+
 
 module.exports = Iterators;
