@@ -17,6 +17,7 @@ var sqrAndRoot = function(num) {
 
 // this might work for sqrt, square or both
 // this is turning into map, but shouldn't
+// I think this works, but iterators.map is erroring
 var sqrOpts = function(list, square, sqrRoot) {
 	var newList = [];
 	for (var i = 0; i < list.length; i++) {
